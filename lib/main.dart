@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'makeContainer.dart';
 import 'dart:async';
 import 'createPage.dart';
-import 'editPage.dart';
+import 'readPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class HomePage extends State<MyApp> {
       initialRoute: "/createpage",
       routes: {
         "/createpage": (context) => CreatePage(),
-        "/editpage": (context) => EditPage()
+        "/readpage": (context) => ReadPage()
       },
       
     );

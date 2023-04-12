@@ -30,9 +30,9 @@ Drawer makeDrawer(dynamic context) {
             ), 
             ListTile(
               leading: Icon(Icons.settings, size:30),
-              title: Text("READ & EDIT", style: TextStyle(fontSize: 20)),
+              title: Text("Read & Edit", style: TextStyle(fontSize: 20)),
                onTap: () {
-                Navigator.of(context).pushReplacementNamed('/editpage');
+                Navigator.of(context).pushReplacementNamed('/readpage');
               },
             )
           ],
