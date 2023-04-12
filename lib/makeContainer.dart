@@ -61,7 +61,30 @@ Container makeReadData(dynamic name, dynamic age, dynamic study, dynamic context
             IconButton(
                 icon: Icon(Icons.delete, size: 35),
                 onPressed: () {
-                  return;
+                 showDialog(context: context, 
+                 builder: (context){
+                  return AlertDialog(
+                    title:Text("Confirmation"), 
+                    content: Text("Delete this item?"),
+                    actions: [
+                      TextButton(onPressed: (){
+                        FirebaseFirestore.instance
+                        .collection('users')
+                        .doc(docId).delete();
+                        Navigator.of(context).pop();}, 
+                      child: Text("Yes")), 
+
+                        
+      
+                      TextButton(onPressed: 
+                      (){
+                        //Nothing to do
+                        Navigator.of(context).pop();
+                      }, 
+                      child: Text("No"))
+                    ],
+                  );
+                 });
                 })
           ],
         ))

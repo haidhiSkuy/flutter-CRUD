@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'createPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -27,7 +26,9 @@ class _EditPageState extends State<EditPage> {
   dynamic docId;
   _EditPageState(this.name, this.age, this.study, this.docId);
 
-  List<TextEditingController> editController = List.generate(3, (i) => TextEditingController());
+
+  late List<String> makeHintText = [name, age, study];
+  late List<TextEditingController> editController = List.generate(3, (i) => TextEditingController(text: makeHintText[i]));
 
 
   @override
@@ -38,21 +39,21 @@ class _EditPageState extends State<EditPage> {
       body: Column(children: [
               //name
               SizedBox(height: 10),
-              TextField(
+              TextFormField(
                 controller: editController[0],
                 decoration: InputDecoration(
-                    hintText: name,
                     icon: Icon(Icons.person),
                     labelText: "Name:",
                     border: OutlineInputBorder()),
+                
+                
               ),
 
               //Age
               SizedBox(height: 10),
-              TextField(
+              TextFormField(
                 controller: editController[1],
                 decoration: InputDecoration(
-                  hintText: age,
                     icon: Icon(Icons.cake_rounded),
                     labelText: "Age:",
                     border: OutlineInputBorder()),
@@ -60,10 +61,9 @@ class _EditPageState extends State<EditPage> {
 
               //study
               SizedBox(height: 10),
-              TextField(
+              TextFormField(
                 controller: editController[2],
                 decoration: InputDecoration(
-                    hintText: study,
                     icon: Icon(Icons.menu_book),
                     labelText: "Study:",
                     border: OutlineInputBorder()),
